@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomy", "Roomy\Roomy.csproj", "{440F1453-3523-4E57-86BF-77CEC0376761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomy.Tests", "Roomy.Tests\Roomy.Tests.csproj", "{3CE1734A-E7B7-481F-BCD1-0FB85AE56078}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{440F1453-3523-4E57-86BF-77CEC0376761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440F1453-3523-4E57-86BF-77CEC0376761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440F1453-3523-4E57-86BF-77CEC0376761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440F1453-3523-4E57-86BF-77CEC0376761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE1734A-E7B7-481F-BCD1-0FB85AE56078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE1734A-E7B7-481F-BCD1-0FB85AE56078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE1734A-E7B7-481F-BCD1-0FB85AE56078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE1734A-E7B7-481F-BCD1-0FB85AE56078}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F3E1BAC-E662-4324-B426-F6AFBD0D0E2C}
+	EndGlobalSection
+EndGlobal
