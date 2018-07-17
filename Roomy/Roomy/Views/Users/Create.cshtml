@@ -1,42 +1,52 @@
 ﻿@model Roomy.Models.User
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+@section sectionTitle{
+    <h2>Ajouter un utilisateur</h2>
 }
 
-<h2>Ajouter un utilisateur</h2>
 
 @using (Html.BeginForm("Create", "Users", System.Web.Mvc.FormMethod.Post))
+
 {
     <div class="row form-group">
-        @Html.LabelFor(x => x.LastName, new { @class = "col-3" })
-        @Html.EditorFor(x => x.LastName, null, new { htmlAttributes = new { @class = "form-control col-4" } })
+        @Html.LabelFor(x => x.CivilityID, new { @class = "col-12" })
+        @Html.DropDownListFor(x => x.CivilityID, new SelectList(ViewBag.Civility, "ID", "Label"), new { @class = "form-control col-12" } )
+        @Html.ValidationMessageFor(x => x.CivilityID, "", new { @class = "text-danger" })
+    </div>
+    <div class="row form-group">
+        @Html.LabelFor(x => x.LastName, new { @class = "col-8" })
+        @Html.EditorFor(x => x.LastName, null, new { htmlAttributes = new { @class = "form-control col-12" } })
         @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
     </div>
     <div class="row form-group">
-        @Html.LabelFor(x => x.FirstName, new { @class = "col-3" })
-        @Html.EditorFor(x => x.FirstName, null, new { htmlAttributes = new { @class = "form-control col-4" } })
+        @Html.LabelFor(x => x.FirstName, new { @class = "col-8" })
+        @Html.EditorFor(x => x.FirstName, null, new { htmlAttributes = new { @class = "form-control col-12" } })
         @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
     </div>
     <div class="row form-group">
-        @Html.LabelFor(x => x.Mail, new { @class = "col-3" })
-        @Html.EditorFor(x => x.Mail, null, new { htmlAttributes = new { @class = "form-control col-4" } })
+        @Html.LabelFor(x => x.Mail, new { @class = "col-8" })
+        @Html.EditorFor(x => x.Mail, null, new { htmlAttributes = new { @class = "form-control col-12" } })
         @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-danger" })
     </div>
     <div class="row form-group">
-        @Html.LabelFor(x => x.Password, new { @class = "col-3" })
-        @Html.EditorFor(x => x.Password, null, new { htmlAttributes = new { @class = "form-control col-4" } })
-        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
-    </div>
-    <div class="row form-group">
-        @Html.LabelFor(x => x.ConfirmedPassword, new { @class = "col-3" })
-        @Html.EditorFor(x => x.ConfirmedPassword, null, new { htmlAttributes = new { @class = "form-control col-4" } })
-        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
-    </div>
-    <div class="row form-group">
-        @Html.LabelFor(x => x.BirthDate, new { @class = "col-3" })
-        @Html.EditorFor(x => x.BirthDate, null, new { htmlAttributes = new { @class = "form-control col-4" } })
+        @Html.LabelFor(x => x.BirthDate, new { @class = "col-8" })
+        @Html.EditorFor(x => x.BirthDate, null, new { htmlAttributes = new { @class = "form-control col-12" } })
         @Html.ValidationMessageFor(x => x.BirthDate, "", new { @class = "text-danger" })
     </div>
+    <div class="row form-group">
+        @Html.LabelFor(x => x.Password, new { @class = "col-8" })
+        @Html.EditorFor(x => x.Password, null, new { htmlAttributes = new { @class = "form-control col-12" } })
+        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="row form-group">
+        @Html.LabelFor(x => x.ConfirmedPassword, new { @class = "col-8" })
+        @Html.EditorFor(x => x.ConfirmedPassword, null, new { htmlAttributes = new { @class = "form-control col-12" } })
+        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    </div>
+
 
     <div class=" row form-group justify-content-lg-center">
         <button type="submit" class="btn btn-outline-info">Enregistrer</button>
@@ -44,6 +54,6 @@
     </div>
 }
 @section SectionScripts{
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <
+    <script></script>
 }
