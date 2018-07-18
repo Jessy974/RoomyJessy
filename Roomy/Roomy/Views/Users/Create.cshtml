@@ -13,8 +13,8 @@
 {
     <div class="row form-group">
         @Html.LabelFor(x => x.CivilityID, new { @class = "col-12" })
-        @Html.DropDownListFor(x => x.CivilityID, new SelectList(ViewBag.Civility, "ID", "Label"), new { @class = "form-control col-12" } )
-        @Html.ValidationMessageFor(x => x.CivilityID, "", new { @class = "text-danger" })
+        @Html.DropDownListFor(x => x.CivilityID, new SelectList(ViewBag.Civilities, "ID", "Label"), new { @class = "form-control col-12" } )
+       
     </div>
     <div class="row form-group">
         @Html.LabelFor(x => x.LastName, new { @class = "col-8" })

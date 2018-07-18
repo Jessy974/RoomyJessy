@@ -15,16 +15,19 @@ namespace Roomy.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.Civility = db.Civilities.ToList();
+            ViewBag.Civilities = db.Civilities.ToList();
             return View();
         }
         [HttpPost]
-        public ActionResult Create(User users)
+        public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
             {
-
+                //enregistrer en bdd
+                db.Users.Add(user);
+                db.SaveChanges();
             }
+            ViewBag.Civilities = db.Civilities.ToList();
             return View();
         }
         //libère la connexion à base de données
