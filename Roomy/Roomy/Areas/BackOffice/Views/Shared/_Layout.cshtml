@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layout</title>
+    <title>Backoffice</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/roomy.css" rel="stylesheet" />
 </head>
@@ -23,16 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="~/">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">App<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.RouteUrl("AboutRoute")">A propos de</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Create","Users")">Ajouter un utilisateur</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard", new { area = "BackOffice" })">Backoffice</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,7 +52,7 @@
 
         @RenderBody()
         <footer class="bg-light">
-            &copy; POEC Rouen 2018
+            &copy; BACKOFFICE POEC Rouen 2018
         </footer>
     </div>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>

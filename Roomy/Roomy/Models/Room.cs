@@ -30,7 +30,7 @@ namespace Roomy.Models
 
         [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
-        public string description { get; set; }
+        public string Description { get; set; }
 
 
         [Required(ErrorMessage = "le champ{0} est obligatoire")]
@@ -39,8 +39,8 @@ namespace Roomy.Models
         [DisplayFormat(DataFormatString = "{0:dddd dd MMMM yyyy}")]
         public DateTime CreatedAt { get; set; }
 
-        [Display(Name="Utilisateur/créateur")]
-        public int UserID { get; set; }
+        [Display(Name="Utilisateur")]
+        public int? UserID { get; set; }
 
         [ForeignKey("UserID")]
         public User User { get; set; }
