@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Utils;
 
 namespace Roomy.Controllers
 {
@@ -23,6 +24,11 @@ namespace Roomy.Controllers
         {
             if (ModelState.IsValid)
             {
+                //méthode d'extension hashage sur le password, on enlève le retour du modelstate.is valide pour les passwords
+                db.Configuration.ValidateOnSaveEnabled = false;
+                user.Password = user.Password.HashMD5();
+
+
                 //enregistrer en bdd
                 db.Users.Add(user);
                 db.SaveChanges();
