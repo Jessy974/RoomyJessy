@@ -46,7 +46,7 @@ namespace Roomy.Models
         public User User { get; set; }
 
         [Display(Name = "Catégorie")]
-        public int? CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }

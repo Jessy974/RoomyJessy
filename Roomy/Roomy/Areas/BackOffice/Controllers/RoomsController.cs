@@ -88,8 +88,14 @@ namespace Roomy.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Capacity,Price,Description,CreatedAt,UserID,CategoryID")] Room room)
+        public ActionResult Edit([Bind(Include = "ID,Name,Capacity,Price,Description,UserID,CategoryID")] Room room)
         {
+
+            //garder les valeurs de la création au niveau de la création sans avoir à la modifier
+            var old = db.Rooms.SingleOrDefault(x =>x.ID==room.ID);
+            room.CreatedAt = old.CreatedAt;
+            db.Entry(old).State = EntityState.Detached;
+
             if (ModelState.IsValid)
             {
                 db.Entry(room).State = EntityState.Modified;

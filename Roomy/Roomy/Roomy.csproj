@@ -207,21 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807171312170_Init.cs" />
-    <Compile Include="Migrations\201807171312170_Init.Designer.cs">
-      <DependentUpon>201807171312170_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807180822004_DropColumnConfirmedPassword.cs" />
-    <Compile Include="Migrations\201807180822004_DropColumnConfirmedPassword.Designer.cs">
-      <DependentUpon>201807180822004_DropColumnConfirmedPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807181348569_AjoutRoom.cs" />
-    <Compile Include="Migrations\201807181348569_AjoutRoom.Designer.cs">
-      <DependentUpon>201807181348569_AjoutRoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807190955591_ModelCategory.cs" />
-    <Compile Include="Migrations\201807190955591_ModelCategory.Designer.cs">
-      <DependentUpon>201807190955591_ModelCategory.cs</DependentUpon>
+    <Compile Include="Migrations\201807191036318_Init.cs" />
+    <Compile Include="Migrations\201807191036318_Init.Designer.cs">
+      <DependentUpon>201807191036318_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -264,17 +252,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807171312170_Init.resx">
-      <DependentUpon>201807171312170_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807180822004_DropColumnConfirmedPassword.resx">
-      <DependentUpon>201807180822004_DropColumnConfirmedPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807181348569_AjoutRoom.resx">
-      <DependentUpon>201807181348569_AjoutRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807190955591_ModelCategory.resx">
-      <DependentUpon>201807190955591_ModelCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807191036318_Init.resx">
+      <DependentUpon>201807191036318_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
