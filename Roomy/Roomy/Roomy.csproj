@@ -116,8 +116,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\roomy.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -143,8 +146,23 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\BackOffice\Views\web.config" />
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_LayoutBO.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Rooms\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Rooms\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Rooms\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Rooms\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Rooms\Index.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\BackOffice\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -179,7 +197,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\RoomsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -199,8 +219,13 @@
     <Compile Include="Migrations\201807181348569_AjoutRoom.Designer.cs">
       <DependentUpon>201807181348569_AjoutRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807190955591_ModelCategory.cs" />
+    <Compile Include="Migrations\201807190955591_ModelCategory.Designer.cs">
+      <DependentUpon>201807190955591_ModelCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Civility.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
@@ -247,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807181348569_AjoutRoom.resx">
       <DependentUpon>201807181348569_AjoutRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190955591_ModelCategory.resx">
+      <DependentUpon>201807190955591_ModelCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

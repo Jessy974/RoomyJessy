@@ -9,19 +9,19 @@ namespace Roomy.Models
 {
     public class Room : BaseModel
     {
-        [Required(ErrorMessage = "le champ{0} est obligatoire")]
+        [Required(ErrorMessage = "le champ {0} est obligatoire")]
         [StringLength(50)]
         [Display(Name = "Libellé")]
         public string Name { get; set; }
 
 
-        [Required(ErrorMessage = "le champ{0} est obligatoire")]
+        [Required(ErrorMessage = "le champ {0} est obligatoire")]
         [Range(0, 50)]
         [Display(Name = "Nombre de places")]
         public int Capacity { get; set; }
 
 
-        [Required(ErrorMessage = "le champ{0} est obligatoire")]
+        [Required(ErrorMessage = "le champ {0} est obligatoire")]
         [Display(Name = "Tarif")]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
@@ -33,7 +33,7 @@ namespace Roomy.Models
         public string Description { get; set; }
 
 
-        [Required(ErrorMessage = "le champ{0} est obligatoire")]
+        [Required(ErrorMessage = "le champ {0} est obligatoire")]
         [Display(Name = "Date de création")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dddd dd MMMM yyyy}")]
@@ -44,5 +44,12 @@ namespace Roomy.Models
 
         [ForeignKey("UserID")]
         public User User { get; set; }
+
+        [Display(Name = "Catégorie")]
+        public int? CategoryID { get; set; }
+
+        [ForeignKey("CategoryID")]
+        public Category Category { get; set; }
+
     }
 }
