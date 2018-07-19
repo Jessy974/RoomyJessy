@@ -80,3 +80,11 @@
 <div>
     @Html.ActionLink("Retourner à la liste", "Index")
 </div>
+@section SectionScripts{
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Description',         
+        })
+    </script>
+    }
