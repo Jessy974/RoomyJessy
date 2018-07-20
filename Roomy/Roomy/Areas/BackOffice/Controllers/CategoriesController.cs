@@ -13,7 +13,7 @@ namespace Roomy.Areas.BackOffice.Controllers
 {
     public class CategoriesController : Controller
     {
-        private RoomyDbContext db = new RoomyDbContext();
+        private RoomyJessyDbContext db = new RoomyJessyDbContext();
 
         // GET: BackOffice/Categories
         public ActionResult Index()
