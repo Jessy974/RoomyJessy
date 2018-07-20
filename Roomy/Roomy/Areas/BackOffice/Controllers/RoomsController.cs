@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,7 +19,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         // GET: BackOffice/Rooms
         public ActionResult Index()
         {
-            var rooms = db.Rooms.Include(r => r.User).Include(r =>r.Category);
+            var rooms = db.Rooms.Include(r => r.User).Include(r => r.Category);
             return View(rooms.ToList());
         }
 
@@ -69,17 +70,24 @@ namespace Roomy.Areas.BackOffice.Controllers
         // GET: BackOffice/Rooms/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+         
+
+            Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id);
             if (room == null)
             {
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+          
+
+            
+
             return View(room);
         }
 
@@ -92,7 +100,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         {
 
             //garder les valeurs de la création au niveau de la création sans avoir à la modifier
-            var old = db.Rooms.SingleOrDefault(x =>x.ID==room.ID);
+            var old = db.Rooms.SingleOrDefault(x => x.ID == room.ID);
             room.CreatedAt = old.CreatedAt;
             db.Entry(old).State = EntityState.Detached;
 
@@ -110,10 +118,12 @@ namespace Roomy.Areas.BackOffice.Controllers
         // GET: BackOffice/Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+           
             Room room = db.Rooms.Find(id);
             if (room == null)
             {
@@ -131,6 +141,40 @@ namespace Roomy.Areas.BackOffice.Controllers
             db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // Ajout d'un fichier sur le modèle post du RoomsController. Il demande en argument un ID et un fichier.
+        [HttpPost]
+        public ActionResult AddFile(int id, HttpPostedFileBase upload)
+        {
+
+            if (upload.ContentLength > 0)
+            {
+                var model = new RoomFile();
+
+                model.RoomID = id;
+                model.Name = upload.FileName;
+                model.ContentType = upload.ContentType;
+
+                // convertit la valeur du fichier string en binaire
+                using (var reader = new BinaryReader(upload.InputStream))
+                {
+                    model.Content = reader.ReadBytes(upload.ContentLength);
+                }
+                db.RoomFiles.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("Edit", new { id = model.RoomID }); //redirige l'action AddFile sur la vue Edit en prenant comme autre argument l'id.
+            }
+            else
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+       
+         public ActionResult DeletedFile (int id)
+        {
+            var file = db.RoomFiles.Find(id);
+            db.RoomFiles.Remove(file);
+            db.SaveChanges();
+            return RedirectToAction("Edit", new {id = file.RoomID});
         }
 
         protected override void Dispose(bool disposing)

@@ -344,7 +344,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Data\RoomyDbContext.cs" />
+    <Compile Include="Data\RoomyJessyDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -356,11 +356,20 @@
     <Compile Include="Migrations\201807200709592_Civilities.Designer.cs">
       <DependentUpon>201807200709592_Civilities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807200832533_RoomFile.cs" />
+    <Compile Include="Migrations\201807200832533_RoomFile.Designer.cs">
+      <DependentUpon>201807200832533_RoomFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807201208494_ModifTypeFile.cs" />
+    <Compile Include="Migrations\201807201208494_ModifTypeFile.Designer.cs">
+      <DependentUpon>201807201208494_ModifTypeFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Civility.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomFile.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Extensions.cs" />
@@ -410,6 +419,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807200709592_Civilities.resx">
       <DependentUpon>201807200709592_Civilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807200832533_RoomFile.resx">
+      <DependentUpon>201807200832533_RoomFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807201208494_ModifTypeFile.resx">
+      <DependentUpon>201807201208494_ModifTypeFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
