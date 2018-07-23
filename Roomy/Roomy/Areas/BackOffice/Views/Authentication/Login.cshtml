@@ -13,6 +13,12 @@
     <title>Authentification</title>
 </head>
 <body>
+    @*cas n°2*@
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">@ViewBag["ErrorMessage"]</div>
+    }
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -41,17 +47,25 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Ok" class="btn btn-default" />
+                <input type="submit" value="Ok" class="btn btn-outline-info" />
             </div>
         </div>
-        
+
+
+
     }
-
-
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/umd/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+        })
+    </script>
+
 </body>
+
 </html>
