@@ -7,10 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Roomy.Data;
+using Roomy.Filters;
 using Roomy.Models;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
+    [AuthenticationFilter]
     public class CategoriesController : Controller
     {
         private RoomyJessyDbContext db = new RoomyJessyDbContext();
@@ -45,6 +47,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         // POST: BackOffice/Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name")] Category category)
@@ -58,7 +61,7 @@ namespace Roomy.Areas.BackOffice.Controllers
 
             return View(category);
         }
-
+        
         // GET: BackOffice/Categories/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,6 +80,8 @@ namespace Roomy.Areas.BackOffice.Controllers
         // POST: BackOffice/Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name")] Category category)
@@ -89,7 +94,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             }
             return View(category);
         }
-
+       
         // GET: BackOffice/Categories/Delete/5
         public ActionResult Delete(int? id)
         {

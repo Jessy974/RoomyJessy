@@ -76,29 +76,29 @@
 }
 <hr />
 
-<form action="@Url.Action("AddFile","Rooms")" method="post" enctype="multipart/form-data">
+<form action="@Url.Action("AddFile","Rooms")" method="post" enctype="multipart/form-data" id="formFile">
     @Html.HiddenFor(x => x.ID)
     <div class="form-group">
         <label>Fichier</label>
-        <input type="File" name="upload" class="form-control" />
+        <input id="file" type="File" name="upload" class="form-control" />
     </div>
     <Button type="submit" class="btn btn-outline-info">Ajouter</Button>
 </form>
 <div class=" row">
-@foreach (var file in Model.Files)
-{
-    <div class=" col-md-4">
+    @foreach (var file in Model.Files)
+    {
+        <div class=" col-md-4">
 
-        <img class="img-thumbnail" title="@file.Name"src="data:@file.ContentType;base64, @System.Convert.ToBase64String(file.Content)" />
-        <p>@file.Name<a href="@Url.Action("DeletedFile","Rooms",new {id=file.ID })"  class="btn btn-outline-info"><i class="fa fa-remove"></i></a></p>
+            <img class="img-thumbnail" title="@file.Name" src="data:@file.ContentType;base64, @System.Convert.ToBase64String(file.Content)" />
+            <p>@file.Name<a href="@Url.Action("DeletedFile","Rooms",new {id=file.ID })" class="btn btn-outline-info"><i class="fa fa-remove"></i></a></p>
 
 
-    </div>
-}
-   
-         
-    
-  </div>
+        </div>
+    }
+
+
+
+</div>
 
 
 
@@ -113,5 +113,19 @@
     <script>
         tinymce.init({ selector: '#Description' })
     </script>
-    
+    <script>
+        $(document).ready(function() {
+            $('#formFile').submit(function (ev) {
+               
+
+                if ($('#file').get(0).files.length===0) {
+                alert("Objet manquant");
+                ev.preventDefault();
+                }
+                
+            });
+        });
+    </script>
+
 }
+
