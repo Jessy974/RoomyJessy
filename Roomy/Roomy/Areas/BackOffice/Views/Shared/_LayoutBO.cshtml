@@ -66,11 +66,7 @@
 
             </div>
         </nav>
-        @if (TempData["Message"] != null)
-        {
-            <div class="alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }
-
+      @Html.Partial("_DisplayMessage")
 
         @RenderBody()
 

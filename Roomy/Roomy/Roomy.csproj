@@ -404,6 +404,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\_TopFive.cshtml" />
+    <Content Include="Views\Shared\_DisplayMessageView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
