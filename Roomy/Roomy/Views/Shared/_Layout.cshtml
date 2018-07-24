@@ -56,15 +56,20 @@
             </div>
         </nav>
 
+
+
         @RenderBody()
         <footer class="bg-light">
             &copy; POEC Rouen 2018
+            @* @Html.Partial("_TopFive", )*@
+            @Html.Action("TopFive", "Shared")
         </footer>
     </div>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/umd/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("SectionScripts", false)
+    
 
 </body>
 </html>

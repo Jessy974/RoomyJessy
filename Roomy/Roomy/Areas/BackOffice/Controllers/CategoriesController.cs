@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Controllers;
 using Roomy.Data;
 using Roomy.Filters;
 using Roomy.Models;
@@ -13,9 +14,9 @@ using Roomy.Models;
 namespace Roomy.Areas.BackOffice.Controllers
 {
     [AuthenticationFilter]
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseController
     {
-        private RoomyJessyDbContext db = new RoomyJessyDbContext();
+        
 
         // GET: BackOffice/Categories
         public ActionResult Index()
@@ -56,6 +57,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 db.Categories.Add(category);
                 db.SaveChanges();
+                this.DisplayMessage("Catégorie créée", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
@@ -90,6 +92,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
+                this.DisplayMessage("Catégorie modifiée", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -121,13 +124,6 @@ namespace Roomy.Areas.BackOffice.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+      
     }
 }

@@ -16,7 +16,7 @@
     @*cas n°2*@
     @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
     {
-        <div class="alert alert-danger">@ViewBag["ErrorMessage"]</div>
+        <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
     }
 
     @using (Html.BeginForm())
