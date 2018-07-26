@@ -7,14 +7,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Controllers;
 using Roomy.Data;
+using Roomy.Filters;
 using Roomy.Models;
+using Roomy.Utils;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
-    public class RoomsController : Controller
+    [AuthenticationFilter]
+    public class RoomsController : BaseController
     {
-        private RoomyJessyDbContext db = new RoomyJessyDbContext();
+
 
         // GET: BackOffice/Rooms
         public ActionResult Index()
@@ -45,6 +49,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         {
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName");
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
+
             return View();
         }
 
@@ -64,18 +69,19 @@ namespace Roomy.Areas.BackOffice.Controllers
 
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+
             return View(room);
         }
 
         // GET: BackOffice/Rooms/Edit/5
         public ActionResult Edit(int? id)
         {
-            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-         
+
 
             Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id);
             if (room == null)
@@ -84,9 +90,9 @@ namespace Roomy.Areas.BackOffice.Controllers
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
-          
 
-            
+
+
 
             return View(room);
         }
@@ -112,18 +118,19 @@ namespace Roomy.Areas.BackOffice.Controllers
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+
             return View(room);
         }
 
         // GET: BackOffice/Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
-           
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           
+
             Room room = db.Rooms.Find(id);
             if (room == null)
             {
@@ -140,6 +147,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             Room room = db.Rooms.Find(id);
             db.Rooms.Remove(room);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -147,6 +155,10 @@ namespace Roomy.Areas.BackOffice.Controllers
         [HttpPost]
         public ActionResult AddFile(int id, HttpPostedFileBase upload)
         {
+            if (upload == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
             if (upload == null)
             {
@@ -169,27 +181,21 @@ namespace Roomy.Areas.BackOffice.Controllers
                 }
                 db.RoomFiles.Add(model);
                 db.SaveChanges();
+
                 return RedirectToAction("Edit", new { id = model.RoomID }); //redirige l'action AddFile sur la vue Edit en prenant comme autre argument l'id.
             }
             else
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
-       
-         public ActionResult DeletedFile (int id)
+
+        public ActionResult DeletedFile(int id)
         {
             var file = db.RoomFiles.Find(id);
             db.RoomFiles.Remove(file);
             db.SaveChanges();
-            return RedirectToAction("Edit", new {id = file.RoomID});
+
+            return RedirectToAction("Edit", new { id = file.RoomID });
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
