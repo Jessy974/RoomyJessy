@@ -26,6 +26,20 @@ namespace Roomy.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.RoomFiles",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 254),
+                        ContentType = c.String(nullable: false, maxLength: 100),
+                        Content = c.Binary(nullable: false),
+                        RoomID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Rooms", t => t.RoomID, cascadeDelete: true)
+                .Index(t => t.RoomID);
+            
+            CreateTable(
                 "dbo.Rooms",
                 c => new
                     {
@@ -66,12 +80,15 @@ namespace Roomy.Migrations
         {
             DropForeignKey("dbo.Rooms", "UserID", "dbo.Users");
             DropForeignKey("dbo.Users", "CivilityID", "dbo.Civilities");
+            DropForeignKey("dbo.RoomFiles", "RoomID", "dbo.Rooms");
             DropForeignKey("dbo.Rooms", "CategoryID", "dbo.Categories");
             DropIndex("dbo.Users", new[] { "CivilityID" });
             DropIndex("dbo.Rooms", new[] { "CategoryID" });
             DropIndex("dbo.Rooms", new[] { "UserID" });
+            DropIndex("dbo.RoomFiles", new[] { "RoomID" });
             DropTable("dbo.Users");
             DropTable("dbo.Rooms");
+            DropTable("dbo.RoomFiles");
             DropTable("dbo.Civilities");
             DropTable("dbo.Categories");
         }

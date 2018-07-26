@@ -80,7 +80,7 @@
     @Html.HiddenFor(x => x.ID)
     <div class="form-group">
         <label>Fichier</label>
-        <input type="File" name="upload" class="form-control" />
+        <input id="file" type="File" name="upload" class="form-control" />
     </div>
     <Button type="submit" class="btn btn-outline-info">Ajouter</Button>
 </form>
@@ -113,5 +113,20 @@
     <script>
         tinymce.init({ selector: '#Description' })
     </script>
-    
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (ev) {
+              
+                if (!$('#file').prop('files')[0])
+                {
+                    alert("Aucun élément à ajouter");
+                    ev.preventDefault();
+                }
+                
+            });
+
+        });
+
+
+    </script>
 }

@@ -148,6 +148,12 @@ namespace Roomy.Areas.BackOffice.Controllers
         public ActionResult AddFile(int id, HttpPostedFileBase upload)
         {
 
+            if (upload == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
             if (upload.ContentLength > 0)
             {
                 var model = new RoomFile();

@@ -348,21 +348,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807200658189_Init.cs" />
-    <Compile Include="Migrations\201807200658189_Init.Designer.cs">
-      <DependentUpon>201807200658189_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807200709592_Civilities.cs" />
-    <Compile Include="Migrations\201807200709592_Civilities.Designer.cs">
-      <DependentUpon>201807200709592_Civilities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807200832533_RoomFile.cs" />
-    <Compile Include="Migrations\201807200832533_RoomFile.Designer.cs">
-      <DependentUpon>201807200832533_RoomFile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807201208494_ModifTypeFile.cs" />
-    <Compile Include="Migrations\201807201208494_ModifTypeFile.Designer.cs">
-      <DependentUpon>201807201208494_ModifTypeFile.cs</DependentUpon>
+    <Compile Include="Migrations\201807202012004_Init.cs" />
+    <Compile Include="Migrations\201807202012004_Init.Designer.cs">
+      <DependentUpon>201807202012004_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -414,17 +402,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807200658189_Init.resx">
-      <DependentUpon>201807200658189_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807200709592_Civilities.resx">
-      <DependentUpon>201807200709592_Civilities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807200832533_RoomFile.resx">
-      <DependentUpon>201807200832533_RoomFile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807201208494_ModifTypeFile.resx">
-      <DependentUpon>201807201208494_ModifTypeFile.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807202012004_Init.resx">
+      <DependentUpon>201807202012004_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

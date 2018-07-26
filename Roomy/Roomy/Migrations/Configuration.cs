@@ -14,7 +14,7 @@ namespace Roomy.Migrations
             this.AutomaticMigrationsEnabled = false;
         }
 
-     /* protected override void Seed(RoomyJessyDbContext context)
+     /*protected override void Seed(RoomyJessyDbContext context)
         {
 
             context.Civilities.AddOrUpdate(

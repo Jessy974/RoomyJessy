@@ -14,6 +14,7 @@ namespace Roomy.Utils
 
             try
             {
+                
                 MD5CryptoServiceProvider crypto = new MD5CryptoServiceProvider();
                 byte[] hash = crypto.ComputeHash(textBytes);
 

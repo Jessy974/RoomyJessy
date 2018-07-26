@@ -13,7 +13,7 @@ namespace Roomy.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201807200658189_Init"; }
+            get { return "201807202012004_Init"; }
         }
         
         string IMigrationMetadata.Source
